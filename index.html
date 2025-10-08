@@ -1,198 +1,264 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Segnala un Caso - BIT Mobility</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f5f5f5;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background-color: #ffffff;
-            padding: 20px;
-            text-align: center;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        header img {
-            max-width: 250px;
-            height: auto;
-        }
-        main {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 80vh;
-        }
-        .form-container {
-            background-color: #ffffff;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            width: 90%;
-            max-width: 900px;
-        }
-        h1 {
-            text-align: center;
-            color: #003366;
-        }
-        form {
-            display: flex;
-            flex-direction: column;
-        }
-        label {
-            margin-top: 15px;
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
-        input, select, textarea, button {
-            margin: 5px 0 15px 0;
-            padding: 10px;
-            border-radius: 6px;
-            border: 1px solid #ccc;
-            font-size: 1rem;
-        }
-        textarea {
-            resize: vertical;
-        }
-        button {
-            background-color: #003366;
-            color: white;
-            border: none;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            padding: 12px;
-            font-size: 1.1rem;
-        }
-        button:hover {
-            background-color: #0055a5;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Segnala un Caso - BIT Mobility</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #ffffff;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    header img {
+      max-width: 250px;
+      height: auto;
+    }
+    main {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 80vh;
+    }
+    .form-container {
+      background-color: #ffffff;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      width: 90%;
+      max-width: 900px;
+    }
+    h1 {
+      text-align: center;
+      color: #003366;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+    label {
+      margin-top: 15px;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    input, select, textarea, button {
+      margin: 5px 0 15px 0;
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+    textarea {
+      resize: vertical;
+    }
+    button {
+      background-color: #003366;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      padding: 12px;
+      font-size: 1.1rem;
+    }
+    button:hover {
+      background-color: #0055a5;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <img src="https://bitmobility.it/wp-content/uploads/2023/09/BIT_Logo_Menu_RE-768x398.png" alt="BIT Mobility">
-    </header>
-    <main>
-        <div class="form-container">
-            <h1>Segnala un Caso</h1>
-            <form action="https://bitmobility--partial.sandbox.my.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=00DfZ0000006gNx" method="POST">
-                
-                <input type="hidden" name="orgid" value="00DfZ0000006gNx">
-                <input type="hidden" name="retURL" value="https://vladromi.github.io/bitmobility/thank-you.html">
+  <header>
+    <img src="https://bitmobility.it/wp-content/uploads/2023/09/BIT_Logo_Menu_RE-768x398.png" alt="BIT Mobility">
+  </header>
+  <main>
+    <div class="form-container">
+      <h1>Segnala un Caso</h1>
+      <form action="https://bitmobility--partial.sandbox.my.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=00DfZ0000006gNx" method="POST">
+        <input type="hidden" name="orgid" value="00DfZ0000006gNx">
+        <input type="hidden" name="retURL" value="https://vladromi.github.io/bitmobility/thank-you.html">
 
-                <!-- Email -->
-                <label for="00NfZ0000007FQX">Email Account</label>
-                <input id="00NfZ0000007FQX" maxlength="80" name="00NfZ0000007FQX" size="20" type="text" required>
+        <!-- Email -->
+        <label for="email">Email Account</label>
+        <input id="email" name="00NfZ0000007FQX" type="email" required>
 
-                <!-- Subject -->
-                <label for="subject">Oggetto</label>
-                <input id="subject" maxlength="80" name="subject" size="20" type="text" required>
+        <!-- Oggetto -->
+        <label for="subject">Oggetto</label>
+        <input id="subject" name="subject" type="text" required>
 
-                <!-- Città -->
-                <label for="00NfZ0000007EuH">Città</label>
-                <select id="00NfZ0000007EuH" name="00NfZ0000007EuH" title="Città" required>
-                    <option value="">--Seleziona--</option>
-                    <option value="Bari">Bari</option>
-                    <option value="Bergamo">Bergamo</option>
-                    <option value="Firenze">Firenze</option>
-                    <option value="Francavilla al Mare">Francavilla al Mare</option>
-                    <option value="La Spezia">La Spezia</option>
-                    <option value="Lecce">Lecce</option>
-                    <option value="Mestre, Venezia">Mestre, Venezia</option>
-                    <option value="Novara">Novara</option>
-                    <option value="Pescara">Pescara</option>
-                    <option value="Pisa">Pisa</option>
-                    <option value="Prato">Prato</option>
-                    <option value="Riccione">Riccione</option>
-                    <option value="Rimini">Rimini</option>
-                    <option value="San Giovanni in Marignano">San Giovanni in Marignano</option>
-                    <option value="Sesto Fiorentino">Sesto Fiorentino</option>
-                    <option value="Taranto">Taranto</option>
-                    <option value="Verona">Verona</option>
-                    <option value="Viareggio">Viareggio</option>
-                </select>
+        <!-- Città -->
+        <label for="city">Città</label>
+        <select id="city" name="00NfZ0000007EuH" required>
+          <option value="">--Seleziona--</option>
+          <option>Bari</option>
+          <option>Bergamo</option>
+          <option>Firenze</option>
+          <option>Pescara</option>
+          <option>Rimini</option>
+          <option>Verona</option>
+        </select>
 
-                <!-- Categoria -->
-                <label for="00NfZ0000007G85">Categoria</label>
-                <select id="00NfZ0000007G85" name="00NfZ0000007G85" title="Categoria" required>
-                    <option value="">--Seleziona--</option>
-                    <option value="NOLEGGIO">NOLEGGIO</option>
-                    <option value="PAGAMENTO">PAGAMENTO</option>
-                    <option value="RIMBORSI">RIMBORSI</option>
-                    <option value="PROBLEMI SU APP/ACCOUNT">PROBLEMI SU APP/ACCOUNT</option>
-                    <option value="SEGNALAZIONI">SEGNALAZIONI</option>
-                    <option value="INFO SISTEMA TARIFFARIO">INFO SISTEMA TARIFFARIO</option>
-                    <option value="INFORMAZIONI GENERALI SUL SERVIZIO">INFORMAZIONI GENERALI SUL SERVIZIO</option>
-                    <option value="DIVENTA NOSTRO PATNER">DIVENTA NOSTRO PATNER</option>
-                    <option value="PENALI NOLEGGIO">PENALI NOLEGGIO</option>
-                    <option value="INTERNI">INTERNI</option>
-                    <option value="SPAM o MAIL NON DI PERTINENZA">SPAM o MAIL NON DI PERTINENZA</option>
-                </select>
+        <!-- Categoria -->
+        <label for="categoria">Categoria</label>
+        <select id="categoria" name="00NfZ0000007G85" required>
+          <option value="">--Seleziona--</option>
+          <option value="NOLEGGIO">NOLEGGIO</option>
+          <option value="PAGAMENTO">PAGAMENTO</option>
+          <option value="RIMBORSI">RIMBORSI</option>
+          <option value="PROBLEMI SU APP/ACCOUNT">PROBLEMI SU APP/ACCOUNT</option>
+          <option value="SEGNALAZIONI">SEGNALAZIONI</option>
+          <option value="INFO SISTEMA TARIFFARIO">INFO SISTEMA TARIFFARIO</option>
+          <option value="INFORMAZIONI GENERALI SUL SERVIZIO">INFORMAZIONI GENERALI SUL SERVIZIO</option>
+        </select>
 
-                <!-- Sotto Categoria -->
-                <label for="00NfZ0000007FLk">Sotto Categoria</label>
-                <select id="00NfZ0000007FLk" name="00NfZ0000007FLk" title="Sotto Categoria">
-                    <option value="">--Seleziona--</option>
-                    <option value="NOLEGGIO - PROBLEMA IN AVVIO NOLEGGIO">NOLEGGIO - PROBLEMA IN AVVIO NOLEGGIO</option>
-                    <option value="NOLEGGIO - PROBLEMA SUL MEZZO IN NOLEGGIO">NOLEGGIO - PROBLEMA SUL MEZZO IN NOLEGGIO</option>
-                    <option value="NOLEGGIO - PROBLEMI A TERMINARE UNA CORSA">NOLEGGIO - PROBLEMI A TERMINARE UNA CORSA</option>
-                    <option value="PAGAMENTO - PROBLEMI SU METODI DI PAGAMENTO">PAGAMENTO - PROBLEMI SU METODI DI PAGAMENTO</option>
-                    <option value="RICHIESTA DI RIMBORSO">RICHIESTA DI RIMBORSO</option>
-                    <option value="PROBLEMI SU APP/ACCOUNT">PROBLEMI SU APP/ACCOUNT</option>
-                    <option value="SEGNALAZIONI e INCIDENTI">SEGNALAZIONI e INCIDENTI</option>
-                    <option value="INFO SISTEMA TARIFFARIO">INFO SISTEMA TARIFFARIO</option>
-                    <option value="INFO AREA OPERATIVA">INFO AREA OPERATIVA</option>
-                    <option value="INFO FUNZIONAMENTO SERVIZIO">INFO FUNZIONAMENTO SERVIZIO</option>
-                    <option value="ALTRO">ALTRO</option>
-                </select>
+        <!-- Sotto Categoria -->
+        <label for="sottocategoria">Sotto Categoria</label>
+        <select id="sottocategoria" name="00NfZ0000007FLk" required>
+          <option value="">--Seleziona Categoria prima--</option>
+        </select>
 
-                <!-- Dettaglio Problema -->
-                <label for="00NfZ0000007FYc">Dettaglio Problema</label>
-                <select id="00NfZ0000007FYc" name="00NfZ0000007FYc" title="Dettaglio Problema">
-                    <option value="">--Seleziona--</option>
-                    <option value="NON SO COME AVVIARE IL NOLEGGIO">NON SO COME AVVIARE IL NOLEGGIO</option>
-                    <option value="NON TROVO IL MEZZO">NON TROVO IL MEZZO</option>
-                    <option value="IN APP IL VEICOLO NON E’ DISPONIBILE">IN APP IL VEICOLO NON E’ DISPONIBILE</option>
-                    <option value="IL VICOLO NON FUNZIONA">IL VICOLO NON FUNZIONA</option>
-                    <option value="HO PROBLEMI CON LA APP">HO PROBLEMI CON LA APP</option>
-                    <option value="ALTRO">ALTRO</option>
-                </select>
+        <!-- Dettaglio Problema -->
+        <label for="dettaglio">Dettaglio Problema</label>
+        <select id="dettaglio" name="00NfZ0000007FYc">
+          <option value="">--Seleziona Sotto Categoria prima--</option>
+        </select>
 
-                <!-- Tipo Guasto -->
-                <label for="00NfZ0000007GBJ">Tipo Guasto</label>
-                <select id="00NfZ0000007GBJ" name="00NfZ0000007GBJ" title="Tipo Guasto">
-                    <option value="">--Seleziona--</option>
-                    <option value="FRENI">FRENI</option>
-                    <option value="ACCELERAZIONE/MOTORE">ACCELERAZIONE/MOTORE</option>
-                    <option value="CAVALLETTO">CAVALLETTO</option>
-                    <option value="LUCI">LUCI</option>
-                    <option value="INDICATORI DI DIREZIONE">INDICATORI DI DIREZIONE</option>
-                    <option value="CAMPANELLO">CAMPANELLO</option>
-                    <option value="DISPLAY">DISPLAY</option>
-                    <option value="PORTA TELEFONO">PORTA TELEFONO</option>
-                    <option value="MANUBRIO">MANUBRIO</option>
-                    <option value="RUOTE">RUOTE</option>
-                    <option value="TELAIO">TELAIO</option>
-                    <option value="CASCO">CASCO</option>
-                    <option value="PARAFANGO">PARAFANGO</option>
-                    <option value="PEDALI">PEDALI</option>
-                    <option value="CATENA">CATENA</option>
-                    <option value="CAVI">CAVI</option>
-                    <option value="SPORCO">SPORCO</option>
-                    <option value="ALTRO">ALTRO</option>
-                </select>
+        <!-- Tipo Guasto -->
+        <label for="tipoGuasto">Tipo Guasto</label>
+        <select id="tipoGuasto" name="00NfZ0000007GBJ">
+          <option value="">--Seleziona Dettaglio prima--</option>
+        </select>
 
-                <!-- Dettagli aggiuntivi -->
-                <label for="description">Dettagli aggiuntivi</label>
-                <textarea id="description" name="description" rows="4" placeholder="Scrivi qui eventuali dettagli aggiuntivi..."></textarea>
+        <!-- Descrizione -->
+        <label for="description">Dettagli aggiuntivi</label>
+        <textarea id="description" name="description" rows="4" placeholder="Scrivi qui eventuali dettagli aggiuntivi..."></textarea>
 
-                <button type="submit">Invia Segnalazione</button>
-            </form>
-        </div>
-    </main>
+        <button type="submit">Invia Segnalazione</button>
+      </form>
+    </div>
+  </main>
+
+  <script>
+    const dipendenze = {
+      "NOLEGGIO": {
+        "NOLEGGIO - PROBLEMA IN AVVIO NOLEGGIO": [
+          "NON SO COME AVVIARE IL NOLEGGIO",
+          "IN APP IL VEICOLO NON E’ DISPONIBILE",
+          "NON TROVO IL MEZZO"
+        ],
+        "NOLEGGIO - PROBLEMA SUL MEZZO IN NOLEGGIO": [
+          "IL VEICOLO NON FUNZIONA",
+          "FRENI",
+          "ACCELERAZIONE/MOTORE",
+          "MANUBRIO",
+          "RUOTE",
+          "ALTRO"
+        ],
+        "NOLEGGIO - PROBLEMI A TERMINARE UNA CORSA": [
+          "NON RIESCO A TERMINARE LA CORSA",
+          "ALTRO"
+        ]
+      },
+      "PAGAMENTO": {
+        "PAGAMENTO - PROBLEMI SU METODI DI PAGAMENTO": [
+          "PROBLEMI CON CARTA DI CREDITO",
+          "TRANSAZIONE NON RIUSCITA",
+          "DOPPIO ADDEBITO"
+        ]
+      },
+      "RIMBORSI": {
+        "RICHIESTA DI RIMBORSO": [
+          "RICHIEDO RIMBORSO PER CORSA",
+          "RICHIEDO RIMBORSO PER ERRORE APP",
+          "ALTRO"
+        ]
+      },
+      "PROBLEMI SU APP/ACCOUNT": {
+        "PROBLEMI SU APP/ACCOUNT": [
+          "HO PROBLEMI CON LA APP",
+          "NON RIESCO AD ACCEDERE",
+          "APP BLOCCATA"
+        ]
+      },
+      "SEGNALAZIONI": {
+        "SEGNALAZIONI e INCIDENTI": [
+          "SEGNALO UN INCIDENTE",
+          "MEZZO ROTTO IN STRADA",
+          "ALTRO"
+        ]
+      },
+      "INFO SISTEMA TARIFFARIO": {
+        "INFO SISTEMA TARIFFARIO": [
+          "DOMANDA SU TARIFFA AL MINUTO",
+          "DOMANDA SU PACCHETTO MINUTI",
+          "ALTRO"
+        ]
+      },
+      "INFORMAZIONI GENERALI SUL SERVIZIO": {
+        "INFO FUNZIONAMENTO SERVIZIO": [
+          "COME FUNZIONA IL SERVIZIO",
+          "AREA OPERATIVA",
+          "ALTRO"
+        ]
+      }
+    };
+
+    const categoriaSel = document.getElementById("categoria");
+    const sottoSel = document.getElementById("sottocategoria");
+    const dettaglioSel = document.getElementById("dettaglio");
+    const tipoGuastoSel = document.getElementById("tipoGuasto");
+
+    categoriaSel.addEventListener("change", function () {
+      const cat = this.value;
+      sottoSel.innerHTML = '<option value="">--Seleziona--</option>';
+      dettaglioSel.innerHTML = '<option value="">--Seleziona Sotto Categoria prima--</option>';
+      tipoGuastoSel.innerHTML = '<option value="">--Seleziona Dettaglio prima--</option>';
+
+      if (cat && dipendenze[cat]) {
+        Object.keys(dipendenze[cat]).forEach(sotto => {
+          const opt = document.createElement("option");
+          opt.value = sotto;
+          opt.textContent = sotto;
+          sottoSel.appendChild(opt);
+        });
+      }
+    });
+
+    sottoSel.addEventListener("change", function () {
+      const cat = categoriaSel.value;
+      const sotto = this.value;
+      dettaglioSel.innerHTML = '<option value="">--Seleziona--</option>';
+      tipoGuastoSel.innerHTML = '<option value="">--Seleziona Dettaglio prima--</option>';
+
+      if (cat && sotto && dipendenze[cat][sotto]) {
+        dipendenze[cat][sotto].forEach(d => {
+          const opt = document.createElement("option");
+          opt.value = d;
+          opt.textContent = d;
+          dettaglioSel.appendChild(opt);
+        });
+      }
+    });
+
+    dettaglioSel.addEventListener("change", function () {
+      const dettaglio = this.value;
+      tipoGuastoSel.innerHTML = '<option value="">--Seleziona--</option>';
+
+      // Solo per il caso NOLEGGIO - PROBLEMA SUL MEZZO IN NOLEGGIO
+      if (dettaglio === "IL VEICOLO NON FUNZIONA") {
+        ["FRENI", "ACCELERAZIONE/MOTORE", "CAVALLETTO", "LUCI", "RUOTE", "TELAIO", "ALTRO"].forEach(g => {
+          const opt = document.createElement("option");
+          opt.value = g;
+          opt.textContent = g;
+          tipoGuastoSel.appendChild(opt);
+        });
+      }
+    });
+  </script>
 </body>
 </html>
