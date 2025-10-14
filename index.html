@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="it">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="Content-type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Segnala un Caso - BIT Mobility</title>
+  <meta charset="utf-8">
+  <META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8">
+  <title>Invia una richiesta – Assistenza Bit Mobility</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
   
-  <!-- Zendesk Garden CSS and jQuery UI like the original site -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
   <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
@@ -14,192 +13,193 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-
+  
   <style>
-    :root {
-      --hc-global-color-grey-100: #f8f9fa;
-      --hc-global-color-grey-200: #e9ecef;
-      --hc-global-color-grey-300: #dee2e6;
-      --hc-global-color-grey-600: #6c757d;
-      --hc-global-color-grey-800: #343a40;
-      --hc-global-color-blue-600: #1f73b7;
-      --hc-global-color-blue-700: #144a74;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
     body {
-      font-family: 'Fira Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
-      background-color: var(--hc-global-color-grey-100);
+      font-family: 'Fira Sans', sans-serif;
       margin: 0;
       padding: 0;
-      line-height: 1.4285714286;
-      color: var(--hc-global-color-grey-800);
-      font-size: 14px;
+      background-color: #f8f9fa;
+      color: #2f3941;
     }
-
-    .header {
-      background-color: #ffffff;
-      padding: 20px;
-      text-align: center;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      border-bottom: 1px solid var(--hc-global-color-grey-300);
-    }
-
-    .header img {
-      max-width: 250px;
-      height: auto;
-    }
-
-    .main-container {
+    
+    .container {
       max-width: 800px;
-      margin: 40px auto;
-      padding: 0 20px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: white;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      min-height: 100vh;
     }
-
-    .form-container {
-      background-color: #ffffff;
-      border: 1px solid var(--hc-global-color-grey-300);
-      border-radius: 8px;
-      padding: 40px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    
+    .header {
+      text-align: center;
+      padding: 20px 0;
+      border-bottom: 1px solid #e5e5e5;
+      margin-bottom: 30px;
     }
-
+    
     h1 {
+      color: #185aa7;
       font-size: 28px;
-      font-weight: 600;
-      color: var(--hc-global-color-grey-800);
-      margin: 0 0 30px 0;
-      text-align: left;
+      margin: 0;
     }
-
+    
     .form-field {
       margin-bottom: 20px;
     }
-
-    .form-label {
+    
+    .form-field.hidden {
+      display: none;
+    }
+    
+    label {
       display: block;
       font-weight: 600;
-      font-size: 14px;
-      color: var(--hc-global-color-grey-800);
-      margin-bottom: 5px;
-      line-height: 1.4285714286;
+      margin-bottom: 8px;
+      color: #2f3941;
     }
-
-    .form-input,
-    .form-select {
+    
+    .optional {
+      font-weight: normal;
+      color: #68737d;
+      font-size: 14px;
+    }
+    
+    input[type="text"], 
+    input[type="email"], 
+    select, 
+    textarea {
       width: 100%;
-      min-height: 40px;
-      padding: 8px 12px;
-      border: 1px solid var(--hc-global-color-grey-300);
+      padding: 10px;
+      border: 1px solid #d8dcde;
       border-radius: 4px;
       font-size: 14px;
       font-family: inherit;
-      background-color: #ffffff;
-      transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+      box-sizing: border-box;
     }
-
-    .form-input:focus,
-    .form-select:focus {
+    
+    input:focus, 
+    select:focus, 
+    textarea:focus {
       outline: none;
-      border-color: var(--hc-global-color-blue-600);
-      box-shadow: 0 0 0 3px rgba(31, 115, 183, 0.15);
+      border-color: #185aa7;
+      box-shadow: 0 0 0 2px rgba(24, 90, 167, 0.2);
     }
-
-    .form-input[required]:invalid,
-    .form-select[required]:invalid {
-      border-color: #d93f4c;
+    
+    select {
+      background-color: white;
+      cursor: pointer;
     }
-
-    .form-textarea {
-      width: 100%;
-      min-height: 80px;
-      padding: 8px 12px;
-      border: 1px solid var(--hc-global-color-grey-300);
-      border-radius: 4px;
-      font-size: 14px;
-      font-family: inherit;
-      background-color: #ffffff;
+    
+    textarea {
+      min-height: 120px;
       resize: vertical;
-      transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
     }
-
-    .form-textarea:focus {
-      outline: none;
-      border-color: var(--hc-global-color-blue-600);
-      box-shadow: 0 0 0 3px rgba(31, 115, 183, 0.15);
+    
+    .checkbox-field {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
     }
-
+    
+    .checkbox-field input[type="checkbox"] {
+      width: auto;
+      margin: 4px 0 0 0;
+    }
+    
+    .checkbox-field label {
+      margin: 0;
+      font-weight: normal;
+      cursor: pointer;
+    }
+    
     .submit-button {
-      background-color: var(--hc-global-color-blue-600);
+      background-color: #185aa7;
       color: white;
       border: none;
+      padding: 12px 30px;
       border-radius: 4px;
-      padding: 12px 24px;
-      font-size: 14px;
+      font-size: 16px;
       font-weight: 600;
       cursor: pointer;
-      transition: background-color 0.15s ease-in-out;
-      min-height: 40px;
+      transition: background-color 0.2s;
     }
-
+    
     .submit-button:hover {
-      background-color: var(--hc-global-color-blue-700);
+      background-color: #0f3554;
     }
-
-    .submit-button:focus {
-      outline: none;
-      box-shadow: 0 0 0 3px rgba(31, 115, 183, 0.15);
+    
+    .submit-button:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
     }
-
-    /* Responsive design */
-    @media (max-width: 768px) {
-      .main-container {
-        margin: 20px auto;
-        padding: 0 15px;
-      }
-
-      .form-container {
-        padding: 20px;
-      }
-
-      h1 {
-        font-size: 24px;
-      }
+    
+    .footer-submit {
+      text-align: center;
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid #e5e5e5;
+    }
+    
+    .required::after {
+      content: " *";
+      color: #d93f4c;
+    }
+    
+    .error {
+      border-color: #d93f4c !important;
+    }
+    
+    .error-message {
+      color: #d93f4c;
+      font-size: 12px;
+      margin-top: 5px;
+    }
+    
+    .form-hint {
+      color: #68737d;
+      font-size: 14px;
+      margin-top: 5px;
     }
   </style>
 </head>
+
 <body>
-  <div class="header">
-    <img src="https://bitmobility.it/wp-content/uploads/2023/09/BIT_Logo_Menu_RE-768x398.png" alt="BIT Mobility">
-  </div>
-  
-  <div class="main-container">
-    <div class="form-container">
-      <h1>Segnala un Caso</h1>
-      <form action="https://bitmobility--partial.sandbox.my.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=00DfZ0000006gNx" method="POST">
-        <input type="hidden" name="orgid" value="00DfZ0000006gNx">
-        <input type="hidden" name="retURL" value="https://vladromi.github.io/bitmobility/thank-you.html">
+  <div class="container">
+    <div class="header">
+      <h1>Invia una richiesta</h1>
+    </div>
 
-        <!-- Email -->
-        <div class="form-field">
-          <label for="email" class="form-label">Email Account *</label>
-          <input id="email" name="00NfZ0000007FQX" type="email" class="form-input" required>
-        </div>
+    <form id="support-form" method="POST" action="https://bitmobility--partial.sandbox.my.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=00DfZ0000006gNx">
+      
+      <!-- Hidden Salesforce fields -->
+      <input type="hidden" name="orgid" value="00DfZ0000006gNx">
+      <input type="hidden" name="retURL" value="https://vladromi.github.io/bitmobility/thank-you.html">
+      
+      <!-- Email Account -->
+      <div class="form-field">
+        <label for="00NfZ0000007FQX" class="required">Indirizzo email</label>
+        <input type="email" id="00NfZ0000007FQX" name="00NfZ0000007FQX" maxlength="80" required>
+      </div>
 
-        <!-- Oggetto -->
-        <div class="form-field">
-          <label for="subject" class="form-label">Oggetto *</label>
-          <input id="subject" name="subject" type="text" class="form-input" required>
-        </div>
+      <!-- Nome e cognome -->
+      <div class="form-field">
+        <label for="name" class="required">Nome e cognome</label>
+        <input type="text" id="name" name="name" required>
+      </div>
 
-        <!-- Città -->
-        <div class="form-field">
-          <label for="city" class="form-label">Città *</label>
-          <select id="city" name="00NfZ0000007EuH" class="form-select" required>
-          <option value="">--Seleziona--</option>
+      <!-- Telefono -->
+      <div class="form-field">
+        <label for="phone">Telefono <span class="optional">(facoltativo)</span></label>
+        <input type="text" id="phone" name="phone">
+      </div>
+
+      <!-- Città di noleggio -->
+      <div class="form-field">
+        <label for="00NfZ0000007EuH" class="required">Città di noleggio</label>
+        <select id="00NfZ0000007EuH" name="00NfZ0000007EuH" title="Città" required>
+          <option value="">--None--</option>
           <option value="Bari">Bari</option>
           <option value="Bergamo">Bergamo</option>
           <option value="Firenze">Firenze</option>
@@ -218,14 +218,26 @@
           <option value="Taranto">Taranto</option>
           <option value="Verona">Verona</option>
           <option value="Viareggio">Viareggio</option>
-          </select>
-        </div>
+        </select>
+      </div>
 
-        <!-- Categoria -->
-        <div class="form-field">
-          <label for="categoria" class="form-label">Categoria *</label>
-          <select id="categoria" name="00NfZ0000007G85" class="form-select" required>
-          <option value="">--Seleziona--</option>
+      <!-- Tipo di mezzo -->
+      <div class="form-field">
+        <label for="00NfZ00000081Bq" class="required">Tipo di mezzo</label>
+        <select id="00NfZ00000081Bq" name="00NfZ00000081Bq" title="Tipo Mezzo" required>
+          <option value="">--None--</option>
+          <option value="Monopattino">Monopattino</option>
+          <option value="E-bike">E-bike</option>
+          <option value="Motorino">Motorino</option>
+          <option value="Tutti i mezzi" selected>Tutti i mezzi</option>
+        </select>
+      </div>
+
+      <!-- Categoria -->
+      <div class="form-field">
+        <label for="00NfZ0000007G85" class="required">Categoria</label>
+        <select id="00NfZ0000007G85" name="00NfZ0000007G85" title="Categoria" required>
+          <option value="">--None--</option>
           <option value="NOLEGGIO">NOLEGGIO</option>
           <option value="PAGAMENTO">PAGAMENTO</option>
           <option value="RIMBORSI">RIMBORSI</option>
@@ -236,264 +248,411 @@
           <option value="DIVENTA NOSTRO PATNER">DIVENTA NOSTRO PATNER</option>
           <option value="PENALI NOLEGGIO">PENALI NOLEGGIO</option>
           <option value="INTERNI">INTERNI</option>
-                    <option value="SPAM o MAIL NON DI PERTINENZA">SPAM o MAIL NON DI PERTINENZA</option>
-          </select>
-        </div>
-
-        <!-- Sotto Categoria -->
-        <div class="form-field">
-          <label for="sottocategoria" class="form-label">Sotto Categoria *</label>
-          <select id="sottocategoria" name="00NfZ0000007FLk" class="form-select" required>
-            <option value="">--Seleziona Categoria prima--</option>
-          </select>
-        </div>
-
-        <!-- Dettaglio Problema -->
-        <div class="form-field">
-          <label for="dettaglio" class="form-label">Dettaglio Problema</label>
-          <select id="dettaglio" name="00NfZ0000007FYc" class="form-select">
-            <option value="">--Seleziona Sotto Categoria prima--</option>
-          </select>
-        </div>
-
-        <!-- Tipo Guasto -->
-        <div class="form-field">
-          <label for="tipoGuasto" class="form-label">Tipo Guasto</label>
-          <select id="tipoGuasto" name="00NfZ0000007GBJ" class="form-select">
-            <option value="">--Seleziona Dettaglio prima--</option>
-          </select>
-        </div>
-
-        <!-- Matricola del mezzo -->
-        <div class="form-field">
-          <label for="matricola" class="form-label">Matricola del mezzo</label>
-          <input id="matricola" name="00NfZ0000007EhN" type="text" class="form-input" maxlength="255">
-        </div>
-
-        <!-- Descrizione -->
-        <div class="form-field">
-          <label for="description" class="form-label">Dettagli aggiuntivi</label>
-          <textarea id="description" name="description" class="form-textarea" rows="4" placeholder="Scrivi qui eventuali dettagli aggiuntivi..."></textarea>
-        </div>
-        
-        <button type="submit" class="submit-button">Invia Segnalazione</button>
         </select>
+      </div>
 
-        <!-- Sotto Categoria -->
-        <label for="sottocategoria">Sotto Categoria</label>
-        <select id="sottocategoria" name="00NfZ0000007FLk" required>
-          <option value="">--Seleziona Categoria prima--</option>
+      <!-- Sotto Categoria -->
+      <div class="form-field hidden" id="subcategory-field">
+        <label for="00NfZ0000007FLk" class="required">Sotto Categoria</label>
+        <select id="00NfZ0000007FLk" name="00NfZ0000007FLk" title="Sotto Categoria">
+          <option value="">--None--</option>
         </select>
+      </div>
 
-        <!-- Dettaglio Problema -->
-        <label for="dettaglio">Dettaglio Problema</label>
-        <select id="dettaglio" name="00NfZ0000007FYc">
-          <option value="">--Seleziona Sotto Categoria prima--</option>
+      <!-- Dettaglio Problema -->
+      <div class="form-field hidden" id="detail-field">
+        <label for="00NfZ0000007FYc" class="required">Dettaglio Problema</label>
+        <select id="00NfZ0000007FYc" name="00NfZ0000007FYc" title="Dettaglio Problema">
+          <option value="">--None--</option>
         </select>
+      </div>
 
-        <!-- Tipo Guasto -->
-        <label for="tipoGuasto">Tipo Guasto</label>
-        <select id="tipoGuasto" name="00NfZ0000007GBJ">
-          <option value="">--Seleziona Dettaglio prima--</option>
+      <!-- Tipo Guasto -->
+      <div class="form-field hidden" id="fault_type-field">
+        <label for="00NfZ0000007GBJ" class="required">Tipo Guasto</label>
+        <select id="00NfZ0000007GBJ" name="00NfZ0000007GBJ" title="Tipo Guasto">
+          <option value="">--None--</option>
+          <option value="FRENI">FRENI</option>
+          <option value="ACCELERAZIONE/MOTORE">ACCELERAZIONE/MOTORE</option>
+          <option value="CAVALLETTO">CAVALLETTO</option>
+          <option value="LUCI">LUCI</option>
+          <option value="INDICATORI DI DIREZIONE">INDICATORI DI DIREZIONE</option>
+          <option value="CAMPANELLO">CAMPANELLO</option>
+          <option value="DISPLAY">DISPLAY</option>
+          <option value="PORTA TELEFONO">PORTA TELEFONO</option>
+          <option value="MANUBRIO">MANUBRIO</option>
+          <option value="RUOTE">RUOTE</option>
+          <option value="TELAIO">TELAIO</option>
+          <option value="CASCO">CASCO</option>
+          <option value="PARAFANGO">PARAFANGO</option>
+          <option value="PEDALI">PEDALI</option>
+          <option value="CATENA">CATENA</option>
+          <option value="CAVI">CAVI</option>
+          <option value="SPORCO">SPORCO</option>
+          <option value="ALTRO">ALTRO</option>
         </select>
+      </div>
 
-        <!-- Matricola del mezzo -->
-        <label for="matricola">Matricola del mezzo</label>
-        <input id="matricola" name="00NfZ0000007EhN" type="text" maxlength="255">
+      <!-- Matricola del mezzo -->
+      <div class="form-field hidden" id="vehicle_id-field">
+        <label for="00NfZ0000007EhN">Matricola del mezzo <span class="optional">(facoltativo)</span></label>
+        <input type="text" id="00NfZ0000007EhN" name="00NfZ0000007EhN" maxlength="255">
+        <div class="form-hint">Inserisci la matricola del mezzo se disponibile</div>
+      </div>
 
-        <button type="submit">Invia Segnalazione</button>
-      </form>
-    </div>
+      <!-- Descrizione -->
+      <div class="form-field">
+        <label for="description" class="required">Descrizione</label>
+        <textarea id="description" name="description" required placeholder="Scrivi la richiesta. Un agente dell'assistenza risponderà appena possibile."></textarea>
+      </div>
+
+      <!-- Privacy Policy -->
+      <div class="form-field">
+        <div class="checkbox-field">
+          <input type="checkbox" id="privacy" name="privacy" required>
+          <label for="privacy" class="required">Dichiaro di aver letto e di accettare l'informativa sulla <a href="https://www.iubenda.com/privacy-policy/42198931" target="_blank">privacy policy</a></label>
+        </div>
+      </div>
+
+      <!-- Submit -->
+      <div class="footer-submit">
+        <input type="submit" value="Invia" class="submit-button">
+      </div>
+    </form>
   </div>
 
   <script>
-    const dipendenze = {
+    // Configurazione categorie e dipendenze
+    const categoryConfig = {
       "NOLEGGIO": {
-        "NOLEGGIO - PROBLEMA IN AVVIO NOLEGGIO": [
-          "NON SO COME AVVIARE IL NOLEGGIO",
-          "NON TROVO IL MEZZO",
-          "IN APP IL VEICOLO NON E' DISPONIBILE"
-        ],
-        "NOLEGGIO - PROBLEMA SUL MEZZO IN NOLEGGIO": [
-          "IL VICOLO NON FUNZIONA",
-          "HO PROBLEMI CON LA APP",
-          "ALTRO",
-          "IL VEICOLO VA PIANO",
-          "IL VEICOLO E' GUASTO - TIPOLOGIA GUASTI",
-          "HO UN PROBLEMA CON LA APP",
-          "HO PROBLEMI CON IL CASCO"
-        ],
-        "NOLEGGIO - PROBLEMI A TERMINARE UNA CORSA": [
-          "NON TROVO IL PUNTO PER TERMINARE IL NOLEGGIO",
-          "IL VEICOLO NON SI SPEGNE",
-          "PROBLEMI CON LA APP O IL TELEFONO",
-          "ALTRO"
-        ]
+        subcategories: {
+          "NOLEGGIO - PROBLEMA IN AVVIO NOLEGGIO": {
+            label: "NOLEGGIO - PROBLEMA IN AVVIO NOLEGGIO",
+            details: [
+              "NON SO COME AVVIARE IL NOLEGGIO",
+              "NON TROVO IL MEZZO", 
+              "IN APP IL VEICOLO NON E' DISPONIBILE",
+              "IL VICOLO NON FUNZIONA",
+              "HO PROBLEMI CON LA APP",
+              "ALTRO"
+            ],
+            showVehicleId: true
+          },
+          "NOLEGGIO - PROBLEMA SUL MEZZO IN NOLEGGIO": {
+            label: "NOLEGGIO - PROBLEMA SUL MEZZO IN NOLEGGIO",
+            details: [
+              "IL VEICOLO VA PIANO",
+              "IL VEICOLO E' GUASTO - TIPOLOGIA GUASTI",
+              "HO UN PROBLEMA CON LA APP", 
+              "ALTRO"
+            ],
+            showVehicleId: true,
+            showFaultType: ["IL VEICOLO E' GUASTO - TIPOLOGIA GUASTI"]
+          },
+          "NOLEGGIO - PROBLEMI A TERMINARE UNA CORSA": {
+            label: "NOLEGGIO - PROBLEMI A TERMINARE UNA CORSA",
+            details: [
+              "NON TROVO IL PUNTO PER TERMINARE IL NOLEGGIO",
+              "IL VEICOLO NON SI SPEGNE",
+              "HO PROBLEMI CON IL CASCO",
+              "ALTRO",
+              "PROBLEMI CON LA APP O IL TELEFONO"
+            ],
+            showVehicleId: true
+          }
+        }
       },
       "PAGAMENTO": {
-        "PAGAMENTO - PROBLEMI SU METODI DI PAGAMENTO": [
-          "PROBLEMI CON IL SECURE CODE",
-          "PAGAMENTI BLOCCATI",
-          "CAMBIO CARTA DI CREDITO",
-          "INFORMAZIONE SU SANZIONI RICEVUTE",
-          "ALTRO SU PAGAMENTI"
-        ]
+        subcategories: {
+          "PAGAMENTO - PROBLEMI SU METODI DI PAGAMENTO": {
+            label: "PAGAMENTO - PROBLEMI SU METODI DI PAGAMENTO",
+            details: [
+              "PROBLEMI CON IL SECURE CODE",
+              "PAGAMENTI BLOCCATI",
+              "CAMBIO CARTA DI CREDITO",
+              "INFORMAZIONE SU SANZIONI RICEVUTE",
+              "ALTRO SU PAGAMENTI"
+            ],
+            showVehicleId: "optional"
+          }
+        }
       },
       "RIMBORSI": {
-        "RICHIESTA DI RIMBORSO": [
-          "RICHIESTA RIMBORSO ABBONAMENTO",
-          "RICHIESTA RIMBORSO WALLET",
-          "RICHIESTA RIMBORSO NOLEGGIO PROBLEMATICO",
-          "RICHIESTA RIMBORSO SANZIONI",
-          "ALTRO"
-        ]
+        subcategories: {
+          "RICHIESTA DI RIMBORSO": {
+            label: "RICHIESTA DI RIMBORSO", 
+            details: [
+              "RICHIESTA RIMBORSO ABBONAMENTO",
+              "RICHIESTA RIMBORSO WALLET",
+              "RICHIESTA RIMBORSO NOLEGGIO PROBLEMATICO",
+              "RICHIESTA RIMBORSO SANZIONI"
+            ],
+            showVehicleId: "optional"
+          }
+        }
       },
       "PROBLEMI SU APP/ACCOUNT": {
-        "PROBLEMI SU APP/ACCOUNT": [
-          "RICHIESTA CAMBIO MAIL/TELEFONO",
-          "PROBLEMI CON ACCOUNT E DOCUMENTI BLOCCATI",
-          "PROBLEMI SU ABBONAMENTI",
-          "PROBLEMI SU CONVENZIONI",
-          "ALTRE PROBLEMATICHE"
-        ]
+        subcategories: {
+          "PROBLEMI SU APP/ACCOUNT": {
+            label: "PROBLEMI SU APP/ACCOUNT",
+            details: [
+              "RICHIESTA CAMBIO MAIL/TELEFONO",
+              "PROBLEMI CON ACCOUNT E DOCUMENTI BLOCCATI", 
+              "PROBLEMI SU ABBONAMENTI",
+              "PROBLEMI SU CONVENZIONI",
+              "ALTRE PROBLEMATICHE"
+            ],
+            showVehicleId: false
+          }
+        }
       },
       "SEGNALAZIONI": {
-        "SEGNALAZIONI e INCIDENTI": [
-          "SEGNALAZIONE INCIDENTE",
-          "MEZZO GUASTO",
-          "MEZZO VANDALIZZATO",
-          "RICHIESTA RICOLLOCAMENTO MEZZO DI INTRALCIO",
-          "PIU' MEZZI NELLA MIA ZONA",
-          "ALTRE SEGNALAZIONI"
-        ]
+        subcategories: {
+          "SEGNALAZIONI e INCIDENTI": {
+            label: "SEGNALAZIONI e INCIDENTI",
+            details: [
+              "SEGNALAZIONE INCIDENTE",
+              "MEZZO GUASTO",
+              "MEZZO VANDALIZZATO", 
+              "RICHIESTA RICOLLOCAMENTO MEZZO DI INTRALCIO",
+              "PIU' MEZZI NELLA MIA ZONA",
+              "ALTRE SEGNALAZIONI"
+            ],
+            showVehicleId: true,
+            showFaultType: ["MEZZO GUASTO"]
+          }
+        }
       },
       "INFO SISTEMA TARIFFARIO": {
-        "INFO SISTEMA TARIFFARIO": [
-          "INFO ABBONAMENTI",
-          "INFO TARIFFE",
-          "INFO ASSICURAZIONE PERSONALE IN APP",
-          "INFO SISTEMA TARIFFARIO E CONVENZIONI"
-        ]
+        subcategories: {
+          "INFO SISTEMA TARIFFARIO": {
+            label: "INFO SISTEMA TARIFFARIO",
+            details: [
+              "INFO ABBONAMENTI",
+              "INFO TARIFFE",
+              "INFO ASSICURAZIONE PERSONALE IN APP",
+              "INFO SISTEMA TARIFFARIO E CONVENZIONI"
+            ],
+            showVehicleId: false
+          }
+        }
       },
       "INFORMAZIONI GENERALI SUL SERVIZIO": {
-        "INFO AREA OPERATIVA": [
-          "RICHIESTA AMPLIAMENTO AREA",
-          "INFO MODALITA' DI PARCHEGGIO",
-          "INFO LIMITI DI AREA OPERATIVA",
-          "RICHIESTA AMPLIAMENTO FLOTTA/MEZZI",
-          "INFORMAZIONI MODALITA' DI PARCHEGGIO",
-          "INFORMAZIONE LIMITI AREA OPERATIVA"
-        ],
-        "INFO FUNZIONAMENTO SERVIZIO": [
-          "INFO FUNZIONAMENTO MEZZI",
-          "INFO REGOLE NAZIONALI",
-          "INFO EASY GO MOTORINI"
-        ]
+        subcategories: {
+          "INFO AREA OPERATIVA": {
+            label: "INFO AREA OPERATIVA",
+            details: [
+              "RICHIESTA AMPLIAMENTO AREA",
+              "INFO MODALITA' DI PARCHEGGIO",
+              "INFO LIMITI DI AREA OPERATIVA", 
+              "RICHIESTA AMPLIAMENTO FLOTTA/MEZZI"
+            ],
+            showVehicleId: false
+          },
+          "INFO FUNZIONAMENTO SERVIZIO": {
+            label: "INFO FUNZIONAMENTO SERVIZIO",
+            details: [
+              "INFORMAZIONI MODALITA' DI PARCHEGGIO",
+              "INFORMAZIONE LIMITI AREA OPERATIVA",
+              "INFO FUNZIONAMENTO MEZZI",
+              "INFO REGOLE NAZIONALI",
+              "INFO EASY GO MOTORINI"
+            ],
+            showVehicleId: false
+          },
+          "INFO RICHIESTA DI LAVORO": {
+            label: "INFO RICHIESTA DI LAVORO",
+            details: [],
+            showVehicleId: false
+          }
+        }
       },
       "DIVENTA NOSTRO PATNER": {
-        "INFO RICHIESTA DI LAVORO": [],
-        "INFO RICHIESTA DI CONTATTO MARKETING": [],
-        "INFO RICHIESTA DI CONTATTO COMMERCIALE": []
+        subcategories: {
+          "INFO RICHIESTA DI CONTATTO MARKETING": {
+            label: "INFO RICHIESTA DI CONTATTO MARKETING",
+            details: [],
+            showVehicleId: false
+          },
+          "INFO RICHIESTA DI CONTATTO COMMERCIALE": {
+            label: "INFO RICHIESTA DI CONTATTO COMMERCIALE", 
+            details: [],
+            showVehicleId: false
+          }
+        }
       },
       "PENALI NOLEGGIO": {
-        "PENALI NOLEGGIO": [
-          "PARCHEGGIO",
-          "MARCIAPIEDE",
-          "GUIDA IN DUE",
-          "ALTRE INFRAZIONI"
-        ]
+        subcategories: {
+          "PENALI NOLEGGIO": {
+            label: "PENALI NOLEGGIO",
+            details: [
+              "PARCHEGGIO",
+              "MARCIAPIEDE", 
+              "GUIDA IN DUE",
+              "ALTRE INFRAZIONI"
+            ],
+            showVehicleId: true
+          }
+        }
       },
       "INTERNI": {
-        "INTERNI": [
-          "VARIAZIONI TARIFFE",
-          "VARIAZIONI AREE",
-          "RICHIESTE INTERVENTI",
-          "RICHIESTE LOGISTICA",
-          "RELAZIONI E DENUNCE O MEZZO DA DENUNCIARE",
-          "UFFICIO LEGALE",
-          "UFFICIO DEL PERSONALE",
-          "SANZIONI AMMINISTRAZITIVE PM"
-        ]
-      },
-      "SPAM o MAIL NON DI PERTINENZA": {
-        "SPAM o MAIL NON DI PERTINENZA": []
+        subcategories: {
+          "INTERNI": {
+            label: "INTERNI",
+            details: [
+              "VARIAZIONI TARIFFE",
+              "VARIAZIONI AREE",
+              "RICHIESTE INTERVENTI",
+              "RICHIESTE LOGISTICA",
+              "RELAZIONI E DENUNCE O MEZZO DA DENUNCIARE", 
+              "UFFICIO LEGALE",
+              "UFFICIO DEL PERSONALE",
+              "SANZIONI AMMINISTRAZITIVE PM"
+            ],
+            showVehicleId: "optional"
+          }
+        }
       }
     };
 
-    // Definizione dei tipi di guasto per specifici dettagli
-    const tipiGuasto = {
-      "IL VEICOLO E' GUASTO - TIPOLOGIA GUASTI": [
-        "FRENI",
-        "ACCELERAZIONE/MOTORE",
-        "CAVALLETTO",
-        "LUCI",
-        "INDICATORI DI DIREZIONE",
-        "CAMPANELLO",
-        "DISPLAY",
-        "PORTA TELEFONO",
-        "MANUBRIO",
-        "RUOTE",
-        "TELAIO",
-        "CASCO",
-        "PARAFANGO",
-        "PEDALI",
-        "CATENA",
-        "CAVI",
-        "SPORCO",
-        "ALTRO"
-      ]
-    };
+    // Elementi DOM
+    const categorySelect = document.getElementById('00NfZ0000007G85');
+    const subcategorySelect = document.getElementById('00NfZ0000007FLk');
+    const detailSelect = document.getElementById('00NfZ0000007FYc');
+    const faultTypeSelect = document.getElementById('00NfZ0000007GBJ');
+    const vehicleIdInput = document.getElementById('00NfZ0000007EhN');
+    
+    const subcategoryField = document.getElementById('subcategory-field');
+    const detailField = document.getElementById('detail-field');
+    const faultTypeField = document.getElementById('fault_type-field');
+    const vehicleIdField = document.getElementById('vehicle_id-field');
 
-    const categoriaSel = document.getElementById("categoria");
-    const sottoSel = document.getElementById("sottocategoria");
-    const dettaglioSel = document.getElementById("dettaglio");
-    const tipoGuastoSel = document.getElementById("tipoGuasto");
+    // Funzioni di utilità
+    function hideField(field) {
+      field.classList.add('hidden');
+      const select = field.querySelector('select');
+      if (select) {
+        select.removeAttribute('required');
+        select.value = '';
+      }
+      const input = field.querySelector('input');
+      if (input) {
+        input.value = '';
+      }
+    }
 
-    categoriaSel.addEventListener("change", function () {
-      const cat = this.value;
-      sottoSel.innerHTML = '<option value="">--Seleziona--</option>';
-      dettaglioSel.innerHTML = '<option value="">--Seleziona Sotto Categoria prima--</option>';
-      tipoGuastoSel.innerHTML = '<option value="">--Seleziona Dettaglio prima--</option>';
+    function showField(field, required = false) {
+      field.classList.remove('hidden');
+      const select = field.querySelector('select');
+      if (select && required) {
+        select.setAttribute('required', 'required');
+      }
+    }
 
-      if (cat && dipendenze[cat]) {
-        Object.keys(dipendenze[cat]).forEach(sotto => {
-          const opt = document.createElement("option");
-          opt.value = sotto;
-          opt.textContent = sotto;
-          sottoSel.appendChild(opt);
-        });
+    function populateSelect(select, options) {
+      select.innerHTML = '<option value="">--None--</option>';
+      options.forEach(option => {
+        const optionElement = document.createElement('option');
+        if (typeof option === 'string') {
+          optionElement.value = option;
+          optionElement.textContent = option;
+        } else {
+          optionElement.value = option.value;
+          optionElement.textContent = option.label;
+        }
+        select.appendChild(optionElement);
+      });
+    }
+
+    // Event Listeners
+    categorySelect.addEventListener('change', function() {
+      const selectedCategory = this.value;
+      
+      // Reset tutti i campi dipendenti
+      hideField(subcategoryField);
+      hideField(detailField); 
+      hideField(faultTypeField);
+      hideField(vehicleIdField);
+      
+      if (selectedCategory && categoryConfig[selectedCategory]) {
+        const config = categoryConfig[selectedCategory];
+        const subcategories = Object.keys(config.subcategories).map(key => ({
+          value: key,
+          label: key
+        }));
+        
+        populateSelect(subcategorySelect, subcategories);
+        showField(subcategoryField, true);
       }
     });
 
-    sottoSel.addEventListener("change", function () {
-      const cat = categoriaSel.value;
-      const sotto = this.value;
-      dettaglioSel.innerHTML = '<option value="">--Seleziona--</option>';
-      tipoGuastoSel.innerHTML = '<option value="">--Seleziona Dettaglio prima--</option>';
-
-      if (cat && sotto && dipendenze[cat][sotto]) {
-        dipendenze[cat][sotto].forEach(d => {
-          const opt = document.createElement("option");
-          opt.value = d;
-          opt.textContent = d;
-          dettaglioSel.appendChild(opt);
-        });
+    subcategorySelect.addEventListener('change', function() {
+      const selectedCategory = categorySelect.value;
+      const selectedSubcategory = this.value;
+      
+      // Reset campi dipendenti
+      hideField(detailField);
+      hideField(faultTypeField);
+      hideField(vehicleIdField);
+      
+      if (selectedCategory && selectedSubcategory && categoryConfig[selectedCategory]) {
+        const subcategoryConfig = categoryConfig[selectedCategory].subcategories[selectedSubcategory];
+        
+        if (subcategoryConfig) {
+          // Mostra dettagli se presenti
+          if (subcategoryConfig.details && subcategoryConfig.details.length > 0) {
+            populateSelect(detailSelect, subcategoryConfig.details);
+            showField(detailField, true);
+          }
+          
+          // Mostra campo matricola se richiesto
+          if (subcategoryConfig.showVehicleId === true) {
+            showField(vehicleIdField);
+            const label = vehicleIdField.querySelector('label');
+            label.innerHTML = 'Matricola del mezzo <span class="optional">(facoltativo)</span>';
+          } else if (subcategoryConfig.showVehicleId === "optional") {
+            showField(vehicleIdField);
+            const label = vehicleIdField.querySelector('label'); 
+            label.innerHTML = 'Matricola del mezzo <span class="optional">(facoltativo)</span>';
+          }
+        }
       }
     });
 
-    dettaglioSel.addEventListener("change", function () {
-      const dettaglio = this.value;
-      tipoGuastoSel.innerHTML = '<option value="">--Seleziona--</option>';
-
-      // Verifica se il dettaglio selezionato ha tipi di guasto associati
-      if (dettaglio && tipiGuasto[dettaglio]) {
-        tipiGuasto[dettaglio].forEach(g => {
-          const opt = document.createElement("option");
-          opt.value = g;
-          opt.textContent = g;
-          tipoGuastoSel.appendChild(opt);
-        });
+    detailSelect.addEventListener('change', function() {
+      const selectedCategory = categorySelect.value;
+      const selectedSubcategory = subcategorySelect.value;
+      const selectedDetail = this.value;
+      
+      // Reset tipo guasto
+      hideField(faultTypeField);
+      
+      if (selectedCategory && selectedSubcategory && categoryConfig[selectedCategory]) {
+        const subcategoryConfig = categoryConfig[selectedCategory].subcategories[selectedSubcategory];
+        
+        if (subcategoryConfig && subcategoryConfig.showFaultType) {
+          const detailText = detailSelect.options[detailSelect.selectedIndex].text;
+          if (subcategoryConfig.showFaultType.includes(detailText)) {
+            showField(faultTypeField, true);
+          }
+        }
       }
+    });
+
+    // Form submission - ora invia realmente a Salesforce
+    document.getElementById('support-form').addEventListener('submit', function(e) {
+      // Log dei dati per debug
+      const formData = new FormData(this);
+      const data = Object.fromEntries(formData.entries());
+      console.log('Form data being sent to Salesforce:', data);
+      
+      // Non preveniamo più l'invio, lasciamo che vada a Salesforce
+      // Il form verrà inviato automaticamente alla URL specificata nell'action
+    });
+
+    // Inizializzazione
+    document.addEventListener('DOMContentLoaded', function() {
+      // Form inizializzato
     });
   </script>
 </body>
