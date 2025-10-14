@@ -1,83 +1,182 @@
 <!DOCTYPE html>
-<html lang="it">
+<html dir="ltr" lang="it">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="Content-type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Segnala un Caso - BIT Mobility</title>
+  
+  <!-- Zendesk Garden CSS and jQuery UI like the original site -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
   <style>
+    :root {
+      --hc-global-color-grey-100: #f8f9fa;
+      --hc-global-color-grey-200: #e9ecef;
+      --hc-global-color-grey-300: #dee2e6;
+      --hc-global-color-grey-600: #6c757d;
+      --hc-global-color-grey-800: #343a40;
+      --hc-global-color-blue-600: #1f73b7;
+      --hc-global-color-blue-700: #144a74;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: 'Arial', sans-serif;
-      background-color: #f5f5f5;
+      font-family: 'Fira Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      background-color: var(--hc-global-color-grey-100);
       margin: 0;
       padding: 0;
+      line-height: 1.4285714286;
+      color: var(--hc-global-color-grey-800);
+      font-size: 14px;
     }
-    header {
+
+    .header {
       background-color: #ffffff;
       padding: 20px;
       text-align: center;
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      border-bottom: 1px solid var(--hc-global-color-grey-300);
     }
-    header img {
+
+    .header img {
       max-width: 250px;
       height: auto;
     }
-    main {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 80vh;
+
+    .main-container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 20px;
     }
+
     .form-container {
       background-color: #ffffff;
+      border: 1px solid var(--hc-global-color-grey-300);
+      border-radius: 8px;
       padding: 40px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      width: 90%;
-      max-width: 900px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     }
+
     h1 {
-      text-align: center;
-      color: #003366;
+      font-size: 28px;
+      font-weight: 600;
+      color: var(--hc-global-color-grey-800);
+      margin: 0 0 30px 0;
+      text-align: left;
     }
-    form {
-      display: flex;
-      flex-direction: column;
+
+    .form-field {
+      margin-bottom: 20px;
     }
-    label {
-      margin-top: 15px;
+
+    .form-label {
+      display: block;
+      font-weight: 600;
+      font-size: 14px;
+      color: var(--hc-global-color-grey-800);
       margin-bottom: 5px;
-      font-weight: bold;
+      line-height: 1.4285714286;
     }
-    input, select, textarea, button {
-      margin: 5px 0 15px 0;
-      padding: 10px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-      font-size: 1rem;
+
+    .form-input,
+    .form-select {
+      width: 100%;
+      min-height: 40px;
+      padding: 8px 12px;
+      border: 1px solid var(--hc-global-color-grey-300);
+      border-radius: 4px;
+      font-size: 14px;
+      font-family: inherit;
+      background-color: #ffffff;
+      transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
     }
-    textarea {
+
+    .form-input:focus,
+    .form-select:focus {
+      outline: none;
+      border-color: var(--hc-global-color-blue-600);
+      box-shadow: 0 0 0 3px rgba(31, 115, 183, 0.15);
+    }
+
+    .form-input[required]:invalid,
+    .form-select[required]:invalid {
+      border-color: #d93f4c;
+    }
+
+    .form-textarea {
+      width: 100%;
+      min-height: 80px;
+      padding: 8px 12px;
+      border: 1px solid var(--hc-global-color-grey-300);
+      border-radius: 4px;
+      font-size: 14px;
+      font-family: inherit;
+      background-color: #ffffff;
       resize: vertical;
+      transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
     }
-    button {
-      background-color: #003366;
+
+    .form-textarea:focus {
+      outline: none;
+      border-color: var(--hc-global-color-blue-600);
+      box-shadow: 0 0 0 3px rgba(31, 115, 183, 0.15);
+    }
+
+    .submit-button {
+      background-color: var(--hc-global-color-blue-600);
       color: white;
       border: none;
+      border-radius: 4px;
+      padding: 12px 24px;
+      font-size: 14px;
+      font-weight: 600;
       cursor: pointer;
-      transition: background-color 0.3s;
-      padding: 12px;
-      font-size: 1.1rem;
+      transition: background-color 0.15s ease-in-out;
+      min-height: 40px;
     }
-    button:hover {
-      background-color: #0055a5;
+
+    .submit-button:hover {
+      background-color: var(--hc-global-color-blue-700);
+    }
+
+    .submit-button:focus {
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(31, 115, 183, 0.15);
+    }
+
+    /* Responsive design */
+    @media (max-width: 768px) {
+      .main-container {
+        margin: 20px auto;
+        padding: 0 15px;
+      }
+
+      .form-container {
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 24px;
+      }
     }
   </style>
 </head>
 <body>
-  <header>
+  <div class="header">
     <img src="https://bitmobility.it/wp-content/uploads/2023/09/BIT_Logo_Menu_RE-768x398.png" alt="BIT Mobility">
-  </header>
-  <main>
+  </div>
+  
+  <div class="main-container">
     <div class="form-container">
       <h1>Segnala un Caso</h1>
       <form action="https://bitmobility--partial.sandbox.my.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=00DfZ0000006gNx" method="POST">
@@ -85,11 +184,21 @@
         <input type="hidden" name="retURL" value="https://vladromi.github.io/bitmobility/thank-you.html">
 
         <!-- Email -->
-        <label for="email">Email Account</label>
-        <input id="email" name="00NfZ0000007FQX" type="email" required>
+        <div class="form-field">
+          <label for="email" class="form-label">Email Account *</label>
+          <input id="email" name="00NfZ0000007FQX" type="email" class="form-input" required>
+        </div>
+
+        <!-- Oggetto -->
+        <div class="form-field">
+          <label for="subject" class="form-label">Oggetto *</label>
+          <input id="subject" name="subject" type="text" class="form-input" required>
+        </div>
+
         <!-- Città -->
-        <label for="city">Città</label>
-        <select id="city" name="00NfZ0000007EuH" required>
+        <div class="form-field">
+          <label for="city" class="form-label">Città *</label>
+          <select id="city" name="00NfZ0000007EuH" class="form-select" required>
           <option value="">--Seleziona--</option>
           <option value="Bari">Bari</option>
           <option value="Bergamo">Bergamo</option>
@@ -109,11 +218,13 @@
           <option value="Taranto">Taranto</option>
           <option value="Verona">Verona</option>
           <option value="Viareggio">Viareggio</option>
-        </select>
+          </select>
+        </div>
 
         <!-- Categoria -->
-        <label for="categoria">Categoria</label>
-        <select id="categoria" name="00NfZ0000007G85" required>
+        <div class="form-field">
+          <label for="categoria" class="form-label">Categoria *</label>
+          <select id="categoria" name="00NfZ0000007G85" class="form-select" required>
           <option value="">--Seleziona--</option>
           <option value="NOLEGGIO">NOLEGGIO</option>
           <option value="PAGAMENTO">PAGAMENTO</option>
@@ -125,7 +236,47 @@
           <option value="DIVENTA NOSTRO PATNER">DIVENTA NOSTRO PATNER</option>
           <option value="PENALI NOLEGGIO">PENALI NOLEGGIO</option>
           <option value="INTERNI">INTERNI</option>
-          <option value="SPAM o MAIL NON DI PERTINENZA">SPAM o MAIL NON DI PERTINENZA</option>
+                    <option value="SPAM o MAIL NON DI PERTINENZA">SPAM o MAIL NON DI PERTINENZA</option>
+          </select>
+        </div>
+
+        <!-- Sotto Categoria -->
+        <div class="form-field">
+          <label for="sottocategoria" class="form-label">Sotto Categoria *</label>
+          <select id="sottocategoria" name="00NfZ0000007FLk" class="form-select" required>
+            <option value="">--Seleziona Categoria prima--</option>
+          </select>
+        </div>
+
+        <!-- Dettaglio Problema -->
+        <div class="form-field">
+          <label for="dettaglio" class="form-label">Dettaglio Problema</label>
+          <select id="dettaglio" name="00NfZ0000007FYc" class="form-select">
+            <option value="">--Seleziona Sotto Categoria prima--</option>
+          </select>
+        </div>
+
+        <!-- Tipo Guasto -->
+        <div class="form-field">
+          <label for="tipoGuasto" class="form-label">Tipo Guasto</label>
+          <select id="tipoGuasto" name="00NfZ0000007GBJ" class="form-select">
+            <option value="">--Seleziona Dettaglio prima--</option>
+          </select>
+        </div>
+
+        <!-- Matricola del mezzo -->
+        <div class="form-field">
+          <label for="matricola" class="form-label">Matricola del mezzo</label>
+          <input id="matricola" name="00NfZ0000007EhN" type="text" class="form-input" maxlength="255">
+        </div>
+
+        <!-- Descrizione -->
+        <div class="form-field">
+          <label for="description" class="form-label">Dettagli aggiuntivi</label>
+          <textarea id="description" name="description" class="form-textarea" rows="4" placeholder="Scrivi qui eventuali dettagli aggiuntivi..."></textarea>
+        </div>
+        
+        <button type="submit" class="submit-button">Invia Segnalazione</button>
         </select>
 
         <!-- Sotto Categoria -->
@@ -149,11 +300,11 @@
         <!-- Matricola del mezzo -->
         <label for="matricola">Matricola del mezzo</label>
         <input id="matricola" name="00NfZ0000007EhN" type="text" maxlength="255">
-        
+
         <button type="submit">Invia Segnalazione</button>
       </form>
     </div>
-  </main>
+  </div>
 
   <script>
     const dipendenze = {
