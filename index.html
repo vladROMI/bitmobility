@@ -2,6 +2,7 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="Content-type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Segnala un Caso - BIT Mobility</title>
   <style>
@@ -95,12 +96,24 @@
         <label for="city">Città</label>
         <select id="city" name="00NfZ0000007EuH" required>
           <option value="">--Seleziona--</option>
-          <option>Bari</option>
-          <option>Bergamo</option>
-          <option>Firenze</option>
-          <option>Pescara</option>
-          <option>Rimini</option>
-          <option>Verona</option>
+          <option value="Bari">Bari</option>
+          <option value="Bergamo">Bergamo</option>
+          <option value="Firenze">Firenze</option>
+          <option value="Francavilla al Mare">Francavilla al Mare</option>
+          <option value="La Spezia">La Spezia</option>
+          <option value="Lecce">Lecce</option>
+          <option value="Mestre, Venezia">Mestre, Venezia</option>
+          <option value="Novara">Novara</option>
+          <option value="Pescara">Pescara</option>
+          <option value="Pisa">Pisa</option>
+          <option value="Prato">Prato</option>
+          <option value="Riccione">Riccione</option>
+          <option value="Rimini">Rimini</option>
+          <option value="San Giovanni in Marignano">San Giovanni in Marignano</option>
+          <option value="Sesto Fiorentino">Sesto Fiorentino</option>
+          <option value="Taranto">Taranto</option>
+          <option value="Verona">Verona</option>
+          <option value="Viareggio">Viareggio</option>
         </select>
 
         <!-- Categoria -->
@@ -114,6 +127,10 @@
           <option value="SEGNALAZIONI">SEGNALAZIONI</option>
           <option value="INFO SISTEMA TARIFFARIO">INFO SISTEMA TARIFFARIO</option>
           <option value="INFORMAZIONI GENERALI SUL SERVIZIO">INFORMAZIONI GENERALI SUL SERVIZIO</option>
+          <option value="DIVENTA NOSTRO PATNER">DIVENTA NOSTRO PATNER</option>
+          <option value="PENALI NOLEGGIO">PENALI NOLEGGIO</option>
+          <option value="INTERNI">INTERNI</option>
+          <option value="SPAM o MAIL NON DI PERTINENZA">SPAM o MAIL NON DI PERTINENZA</option>
         </select>
 
         <!-- Sotto Categoria -->
@@ -134,6 +151,10 @@
           <option value="">--Seleziona Dettaglio prima--</option>
         </select>
 
+        <!-- Matricola del mezzo -->
+        <label for="matricola">Matricola del mezzo</label>
+        <input id="matricola" name="00NfZ0000007EhN" type="text" maxlength="255">
+
         <!-- Descrizione -->
         <label for="description">Dettagli aggiuntivi</label>
         <textarea id="description" name="description" rows="4" placeholder="Scrivi qui eventuali dettagli aggiuntivi..."></textarea>
@@ -148,64 +169,137 @@
       "NOLEGGIO": {
         "NOLEGGIO - PROBLEMA IN AVVIO NOLEGGIO": [
           "NON SO COME AVVIARE IL NOLEGGIO",
-          "IN APP IL VEICOLO NON E’ DISPONIBILE",
-          "NON TROVO IL MEZZO"
+          "NON TROVO IL MEZZO",
+          "IN APP IL VEICOLO NON E' DISPONIBILE"
         ],
         "NOLEGGIO - PROBLEMA SUL MEZZO IN NOLEGGIO": [
-          "IL VEICOLO NON FUNZIONA",
-          "FRENI",
-          "ACCELERAZIONE/MOTORE",
-          "MANUBRIO",
-          "RUOTE",
-          "ALTRO"
+          "IL VICOLO NON FUNZIONA",
+          "HO PROBLEMI CON LA APP",
+          "ALTRO",
+          "IL VEICOLO VA PIANO",
+          "IL VEICOLO E' GUASTO - TIPOLOGIA GUASTI",
+          "HO UN PROBLEMA CON LA APP",
+          "HO PROBLEMI CON IL CASCO"
         ],
         "NOLEGGIO - PROBLEMI A TERMINARE UNA CORSA": [
-          "NON RIESCO A TERMINARE LA CORSA",
+          "NON TROVO IL PUNTO PER TERMINARE IL NOLEGGIO",
+          "IL VEICOLO NON SI SPEGNE",
+          "PROBLEMI CON LA APP O IL TELEFONO",
           "ALTRO"
         ]
       },
       "PAGAMENTO": {
         "PAGAMENTO - PROBLEMI SU METODI DI PAGAMENTO": [
-          "PROBLEMI CON CARTA DI CREDITO",
-          "TRANSAZIONE NON RIUSCITA",
-          "DOPPIO ADDEBITO"
+          "PROBLEMI CON IL SECURE CODE",
+          "PAGAMENTI BLOCCATI",
+          "CAMBIO CARTA DI CREDITO",
+          "INFORMAZIONE SU SANZIONI RICEVUTE",
+          "ALTRO SU PAGAMENTI"
         ]
       },
       "RIMBORSI": {
         "RICHIESTA DI RIMBORSO": [
-          "RICHIEDO RIMBORSO PER CORSA",
-          "RICHIEDO RIMBORSO PER ERRORE APP",
+          "RICHIESTA RIMBORSO ABBONAMENTO",
+          "RICHIESTA RIMBORSO WALLET",
+          "RICHIESTA RIMBORSO NOLEGGIO PROBLEMATICO",
+          "RICHIESTA RIMBORSO SANZIONI",
           "ALTRO"
         ]
       },
       "PROBLEMI SU APP/ACCOUNT": {
         "PROBLEMI SU APP/ACCOUNT": [
-          "HO PROBLEMI CON LA APP",
-          "NON RIESCO AD ACCEDERE",
-          "APP BLOCCATA"
+          "RICHIESTA CAMBIO MAIL/TELEFONO",
+          "PROBLEMI CON ACCOUNT E DOCUMENTI BLOCCATI",
+          "PROBLEMI SU ABBONAMENTI",
+          "PROBLEMI SU CONVENZIONI",
+          "ALTRE PROBLEMATICHE"
         ]
       },
       "SEGNALAZIONI": {
         "SEGNALAZIONI e INCIDENTI": [
-          "SEGNALO UN INCIDENTE",
-          "MEZZO ROTTO IN STRADA",
-          "ALTRO"
+          "SEGNALAZIONE INCIDENTE",
+          "MEZZO GUASTO",
+          "MEZZO VANDALIZZATO",
+          "RICHIESTA RICOLLOCAMENTO MEZZO DI INTRALCIO",
+          "PIU' MEZZI NELLA MIA ZONA",
+          "ALTRE SEGNALAZIONI"
         ]
       },
       "INFO SISTEMA TARIFFARIO": {
         "INFO SISTEMA TARIFFARIO": [
-          "DOMANDA SU TARIFFA AL MINUTO",
-          "DOMANDA SU PACCHETTO MINUTI",
-          "ALTRO"
+          "INFO ABBONAMENTI",
+          "INFO TARIFFE",
+          "INFO ASSICURAZIONE PERSONALE IN APP",
+          "INFO SISTEMA TARIFFARIO E CONVENZIONI"
         ]
       },
       "INFORMAZIONI GENERALI SUL SERVIZIO": {
+        "INFO AREA OPERATIVA": [
+          "RICHIESTA AMPLIAMENTO AREA",
+          "INFO MODALITA' DI PARCHEGGIO",
+          "INFO LIMITI DI AREA OPERATIVA",
+          "RICHIESTA AMPLIAMENTO FLOTTA/MEZZI",
+          "INFORMAZIONI MODALITA' DI PARCHEGGIO",
+          "INFORMAZIONE LIMITI AREA OPERATIVA"
+        ],
         "INFO FUNZIONAMENTO SERVIZIO": [
-          "COME FUNZIONA IL SERVIZIO",
-          "AREA OPERATIVA",
-          "ALTRO"
+          "INFO FUNZIONAMENTO MEZZI",
+          "INFO REGOLE NAZIONALI",
+          "INFO EASY GO MOTORINI"
         ]
+      },
+      "DIVENTA NOSTRO PATNER": {
+        "INFO RICHIESTA DI LAVORO": [],
+        "INFO RICHIESTA DI CONTATTO MARKETING": [],
+        "INFO RICHIESTA DI CONTATTO COMMERCIALE": []
+      },
+      "PENALI NOLEGGIO": {
+        "PENALI NOLEGGIO": [
+          "PARCHEGGIO",
+          "MARCIAPIEDE",
+          "GUIDA IN DUE",
+          "ALTRE INFRAZIONI"
+        ]
+      },
+      "INTERNI": {
+        "INTERNI": [
+          "VARIAZIONI TARIFFE",
+          "VARIAZIONI AREE",
+          "RICHIESTE INTERVENTI",
+          "RICHIESTE LOGISTICA",
+          "RELAZIONI E DENUNCE O MEZZO DA DENUNCIARE",
+          "UFFICIO LEGALE",
+          "UFFICIO DEL PERSONALE",
+          "SANZIONI AMMINISTRAZITIVE PM"
+        ]
+      },
+      "SPAM o MAIL NON DI PERTINENZA": {
+        "SPAM o MAIL NON DI PERTINENZA": []
       }
+    };
+
+    // Definizione dei tipi di guasto per specifici dettagli
+    const tipiGuasto = {
+      "IL VEICOLO E' GUASTO - TIPOLOGIA GUASTI": [
+        "FRENI",
+        "ACCELERAZIONE/MOTORE",
+        "CAVALLETTO",
+        "LUCI",
+        "INDICATORI DI DIREZIONE",
+        "CAMPANELLO",
+        "DISPLAY",
+        "PORTA TELEFONO",
+        "MANUBRIO",
+        "RUOTE",
+        "TELAIO",
+        "CASCO",
+        "PARAFANGO",
+        "PEDALI",
+        "CATENA",
+        "CAVI",
+        "SPORCO",
+        "ALTRO"
+      ]
     };
 
     const categoriaSel = document.getElementById("categoria");
@@ -249,9 +343,9 @@
       const dettaglio = this.value;
       tipoGuastoSel.innerHTML = '<option value="">--Seleziona--</option>';
 
-      // Solo per il caso NOLEGGIO - PROBLEMA SUL MEZZO IN NOLEGGIO
-      if (dettaglio === "IL VEICOLO NON FUNZIONA") {
-        ["FRENI", "ACCELERAZIONE/MOTORE", "CAVALLETTO", "LUCI", "RUOTE", "TELAIO", "ALTRO"].forEach(g => {
+      // Verifica se il dettaglio selezionato ha tipi di guasto associati
+      if (dettaglio && tipiGuasto[dettaglio]) {
+        tipiGuasto[dettaglio].forEach(g => {
           const opt = document.createElement("option");
           opt.value = g;
           opt.textContent = g;
